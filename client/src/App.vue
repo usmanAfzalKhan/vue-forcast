@@ -26,4 +26,4 @@ export default {
   margin-top: 60px;
 }
 
-</style>./components/search-box/SearchBox.vue
+</style>
