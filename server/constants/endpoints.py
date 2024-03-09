@@ -1,0 +1,2 @@
+class ENDPOINTS:
+    WEATHER = "/weather"
