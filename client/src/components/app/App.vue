@@ -1,24 +1,25 @@
 <template>
-  <SearchBox/>
-  <WeatherDisplay/>
+  <SearchBox />
+  <WeatherDisplay />
   <div>
     <Button label="Conversion" />
-  </div>  
+  </div>
 </template>
 
-<script>
-import SearchBox from './components/search-box/SearchBox.vue';
-import WeatherDisplay from './components/weather-display/WeatherDisplay.vue';
-import Button from 'primevue/button';
+<script lang="ts">
+import Button from "primevue/button";
+import { defineComponent } from "vue";
+import SearchBox from "../search-box/SearchBox.vue";
+import WeatherDisplay from "../weather-display/WeatherDisplay.vue";
 
-export default {
-  name: 'App',
+export default defineComponent({
+  name: "App",
   components: {
     SearchBox,
     WeatherDisplay,
-    Button
-  }
-}
+    Button,
+  },
+});
 </script>
 
 <style>
