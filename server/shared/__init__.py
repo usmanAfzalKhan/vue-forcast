@@ -1,3 +1,3 @@
-from shared.docs.docs import docs, spec, initialize_docs
+from shared.docs.docs import spec, initialize_docs, get_docs
 
-__all__ = ["docs", "spec", "initialize_docs"]
+__all__ = ["spec", "initialize_docs", "get_docs"]

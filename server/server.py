@@ -1,8 +1,8 @@
 from flask import Flask
 
-from api import weather_bp
-from shared import spec, initialize_docs
+from api import weather_bp, register_weather_docs
 from constants import ENDPOINTS
+from shared import spec, initialize_docs
 
 
 def create_app() -> Flask:
@@ -24,6 +24,7 @@ def register_blueprints(app: Flask):
         app (Flask): The Flask application object.
     """
     app.register_blueprint(weather_bp)
+    register_weather_docs()
 
 
 def register_docs(app: Flask):
@@ -43,11 +44,12 @@ def register_docs(app: Flask):
     initialize_docs(app)
 
 
+# Create the Flask application
 app = create_app()
-
-register_blueprints(app)
-
+# Register the swagger documentation
 register_docs(app)
+# Register the blueprints
+register_blueprints(app)
 
 
 if __name__ == "__main__":

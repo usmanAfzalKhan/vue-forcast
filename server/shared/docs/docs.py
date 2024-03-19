@@ -3,8 +3,6 @@ from flask import Flask
 from flask_apispec import FlaskApiSpec
 from apispec.ext.marshmallow import MarshmallowPlugin
 
-docs = None
-
 spec = APISpec(
     title="Vue Forecast API",
     version="1.0.0",
@@ -22,3 +20,13 @@ def initialize_docs(app: Flask):
     """
     global docs
     docs = FlaskApiSpec(app)
+
+
+def get_docs():
+    """
+    Returns the FlaskApiSpec instance for generating API documentation.
+
+    Returns:
+    - FlaskApiSpec: The FlaskApiSpec instance.
+    """
+    return docs
