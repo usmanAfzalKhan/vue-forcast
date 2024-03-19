@@ -1,14 +1,17 @@
+<!-- TODO: Declare props and methods -->
 <template>
-    <div class="search-container">
-        <input type="text" v-model="searchQuery" @input="search" placeholder="Search...">
-        <button @click="performSearch">Search</button>
-    </div>
+  <div class="search-container">
+    <input type="text" v-model="searchQuery" @input="search" placeholder="Search..." />
+    <button @click="performSearch">Search</button>
+  </div>
 </template>
 
-<script>
-export default {
-    name: 'SearchBox'
-}
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  name: "SearchBox",
+});
 </script>
 
 <style>
@@ -33,5 +36,4 @@ export default {
   border-radius: 4px;
   cursor: pointer;
 }
-
 </style>
