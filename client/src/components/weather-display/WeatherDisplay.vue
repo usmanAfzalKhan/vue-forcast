@@ -1,58 +1,146 @@
-<template>
-  <h1>City</h1>
-  <p>Description</p>
-  <div class="weather-display">
-    <table class="weather-display-table">
-      <tr>
-        <th class="weather-display-table-header">Temperature</th>
-        <th class="weather-display-table-header">Feels Like</th>
-        <th class="weather-display-table-header">Maximum Temperature</th>
-        <th class="weather-display-table-header">Minimum Temperature</th>
-      </tr>
-      <tr>
-        <td>15</td>
-        <td>14</td>
-        <td>12</td>
-        <td>6</td>
-      </tr>
-    </table>
-    <table class="weather-display-table">
-      <tr>
-        <th class="weather-display-table-header">Pressure</th>
-        <th class="weather-display-table-header">Humility</th>
-        <th class="weather-display-table-header">Degrees</th>
-        <th class="weather-display-table-header">Wind Speed</th>
-      </tr>
-      <tr>
-        <td>60</td>
-        <td>75</td>
-        <td>250</td>
-        <td>75</td>
-      </tr>
-    </table>
-  </div>
-</template>
-
 <script lang="ts">
 import { defineComponent } from "vue";
+import WeatherDisplayMini from "../weather-display-mini/WeatherDisplayMini.vue";
 
 export default defineComponent({
   name: "WeatherDisplay",
+  components: { WeatherDisplayMini },
 });
 </script>
 
+<template>
+  <div class="main-view">
+    <div class="left-view">
+      <div class="header">
+        <h2>Toronto</h2>
+        <h3>21.03.2021</h3>
+      </div>
+      <div class="content">
+        <div class="temp">
+          <span class="degrees">14&deg;</span>
+          <span class="desc">Cloudy</span>
+        </div>
+        <div class="daily">
+          <WeatherDisplayMini></WeatherDisplayMini>
+          <WeatherDisplayMini></WeatherDisplayMini>
+          <WeatherDisplayMini></WeatherDisplayMini>
+          <WeatherDisplayMini></WeatherDisplayMini>
+          <WeatherDisplayMini></WeatherDisplayMini>
+          <WeatherDisplayMini></WeatherDisplayMini>
+          <WeatherDisplayMini></WeatherDisplayMini>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-view">
+      <div class="header">
+        <h3>Good Morning</h3>
+        <h3>10:30</h3>
+      </div>
+
+      <div class="content">
+        <div class="temp">
+          <span class="degrees">14&deg;</span>
+          <span class="feel">Feels like 19&deg;</span>
+          <span class="desc">Cloudy</span>
+          <span class="daily-desc">Hourly Forecast</span>
+        </div>
+        <div class="hourly">
+          <WeatherDisplayMini></WeatherDisplayMini>
+          <WeatherDisplayMini></WeatherDisplayMini>
+          <WeatherDisplayMini></WeatherDisplayMini>
+          <WeatherDisplayMini></WeatherDisplayMini>
+          <WeatherDisplayMini></WeatherDisplayMini>
+          <WeatherDisplayMini></WeatherDisplayMini>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
 <style scoped>
-.weather-display {
+.main-view {
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
 }
 
-.weather-display-table {
-  width: 100%;
+.left-view {
+  flex-grow: 1;
+
+  .header {
+    display: flex;
+
+    h3 {
+      margin-left: 555px;
+      flex-grow: 1;
+    }
+
+    h2 {
+      margin-left: 85px;
+      flex-grow: 1;
+    }
+  }
+
+  .content {
+    text-align: center;
+
+    .temp {
+      display: flex;
+      flex-direction: column;
+
+      .degrees {
+        font-size: 20vmin;
+      }
+
+      .feel {
+        font-size: 1vmin;
+      }
+
+      .desc {
+        font-size: 4vmin;
+      }
+    }
+
+    .daily {
+      display: flex;
+      justify-content: space-evenly;
+    }
+  }
 }
 
-.weather-display-table-header {
-  width: 25%;
+.right-view {
+  padding-left: 50px;
+  text-align: center;
+  background-color: #f6f6f6;
+  width: 20%;
+
+  .header {
+    margin-top: 10px;
+  }
+
+  .temp {
+    display: flex;
+    flex-direction: column;
+
+    .degrees {
+      font-size: 3vmin;
+    }
+
+    .feel {
+      font-size: 1.8vmin;
+    }
+
+    .desc {
+      font-size: 2.5vmin;
+    }
+
+    .daily-desc {
+      font-size: 2vmin;
+    }
+  }
+  .hourly {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
 }
 </style>
